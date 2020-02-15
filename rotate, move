@@ -42,6 +42,8 @@ public class Character : MonoBehaviour
 		float singleStep = rotateSpeed * Time.deltaTime;
 		Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f);
 		transform.rotation = Quaternion.LookRotation(newDirection);
+		
+		//lookat은 바로 회전 lookRotation은 천천히 회전
 	}
 
 	private void Move()
