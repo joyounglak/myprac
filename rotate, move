@@ -42,6 +42,16 @@ public class Character : MonoBehaviour
 		float singleStep = rotateSpeed * Time.deltaTime;
 		Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f);
 		transform.rotation = Quaternion.LookRotation(newDirection);
+		
+		//lookRotation은 천천히 회전, lookat은 바로 회전
+		//짐벌락 발생을 막기위해 eulerAngle 중 회전하지 않을 축을 강제로 고정해주는게 좋다.
+		/*
+		ex)
+		Vector3 tmp = transform.eulerAngles;
+		tmp.x = 0;
+		tmp.z = 0;
+		transform.eulerAngles = tmp;
+		*/
 	}
 
 	private void Move()
